@@ -1,0 +1,15 @@
+{% extends 'photo/base.html' %}
+{% load static %}
+
+{% block content %}
+{{ post.title }}|Edit
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+{#    {{  formset.as_table }}#}
+    <img src="/media/{{ post.picture }}" alt="" width="380" height="250">
+    <input type="submit" value="Update" class="btn btn-outlined-success">
+</form>
+
+
+{% endblock %}

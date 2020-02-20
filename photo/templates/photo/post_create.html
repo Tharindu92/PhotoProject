@@ -1,0 +1,13 @@
+{% extends 'photo/base.html' %}
+{% load static %}
+{% block content %}
+
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+{#    {{  formset.as_table }}#}
+    <input type="submit"  class="btn btn-outlined-success">
+</form>
+
+
+{% endblock %}

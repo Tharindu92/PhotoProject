@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'post_list' %}">Tharindu's Insta</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+{#      <li class="nav-item active">#}
+{#        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
+{#      </li>#}
+{#      <li class="nav-item">#}
+{#        <a class="nav-link" href="#">Link</a>#}
+{#      </li>#}
+    <form class="form-inline my-2 my-lg-0" action="{% url 'post_list' %}">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <li class="nav-item dropdown">
+            <select id ="orderby" name="orderby" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <option value="asc" class="dropdown-item">Earliest First</option>
+                <option value="dsc" class="dropdown-item">Latest First</option>
+            </div>
+            </select>
+        </li>
+        <li class="nav-item dropdown">
+            <select id ="status" name="status" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <option value="published" class="dropdown-item">Published</option>
+                <option value="draft" class="dropdown-item">Draft</option>
+                <option value="all" class="dropdown-item">All</option>
+            </div>
+            </select>
+        </li>
+    </form>
+
+{#      <li class="nav-item">#}
+{#        <a class="nav-link disabled" href="#">Disabled</a>#}
+{#      </li>#}
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a href="{% url 'post_create' %}" class="nav-lnk">   Create Post</a>
+        </li>
+        {% endif %}
+
+    </ul>
+    <ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span> Hi {{ request.user|capfirst }}</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
+            </div>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+            <a href="{% url 'user_login' %}" class="nav-lnk">Login</a>
+        </li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>

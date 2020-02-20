@@ -1,0 +1,25 @@
+{% extends 'photo/base.html' %}
+{% block content %}
+
+<div class="container">
+
+       <h3>{{ post.title }}</h3>
+        <small>Post Created by: {{ post.author }}</small>
+         <hr>
+        <div class="col-md-6">
+        <img src="{{ post.picture.url}}" alt="{{ post.title }}" style="width:500px;height:700px;">
+        </div>
+
+        <div class="section-1" style="float:right">
+            <a href="{% url 'photo:post_edit' id=post.id %}">
+                <button type="button" class="btn btn-outline-success">Edit</button>
+            </a>
+            <a href="{% url 'photo:post_delete' id=post.id %}" id ="delete">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+        </div>
+
+
+</div>
+
+{% endblock %}
