@@ -1,0 +1,16 @@
+args==0.1.0
+asgiref==3.2.3
+Django==1.11.7
+django-filter==2.2.0
+django-filter-stubs==0.1.1
+django-stubs==1.4.0
+djangorestframework==3.11.0
+djangorestframework-stubs==1.1.0
+Markdown==3.2.1
+mypy==0.761
+mypy-extensions==0.4.3
+Pillow==7.0.0
+pytz==2019.3
+sqlparse==0.3.0
+typed-ast==1.4.1
+typing-extensions==3.7.4.1
