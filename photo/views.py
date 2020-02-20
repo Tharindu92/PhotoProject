@@ -5,10 +5,8 @@ from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
-from photo.filters import PostFilter
 from photo.forms import PostCreateForm, UserLoginForm, PostEditForm
 from .models import Post
-from rest_framework.generics import ListAPIView
 
 def post_list(request):
     orderby = 'created'
